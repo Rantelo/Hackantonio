@@ -1,0 +1,65 @@
+body{
+	font-family: Roboto,arial,sans-serif;
+}
+.page-header{
+	font-size: 4.5em;
+	color:#616363;
+}
+.col-lg-3.col-md-4.col-xs-6.thumb.thumbnail{
+	padding: 2px;
+	border: none;
+}
+.thumbnail-border{
+	margin: 2px;
+  border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-transition: border .2s ease-in-out;
+	-o-transition: border .2s ease-in-out;
+	transition: border .2s ease-in-out;
+}
+/** Device **/
+a.device{
+	color:#7C7F7F;
+	text-decoration: none;
+}
+.device-name{
+	padding: 0px;
+	margin: 0px;
+}
+.device-ip{
+	padding: 0px 0px 10px 2px;
+	margin: 0px;
+}
+
+/** Device Options **/
+.options-container{
+	border-top: 1px solid #ddd;
+	display: table;
+	width: 100%;
+}
+.btn-column{
+	display: table-cell;
+	width: 33%;
+	text-align: center;
+	color:#7C7F7F;
+}
+.btn-column:hover{
+	color:#979A9A;
+}
+.btn-column .glyphicon{
+	font-size:1.7em;
+	margin-top: 7px;
+}
+.op-legend{
+	font-size: 0.8em;
+	margin: 0px;
+	padding: 0px;
+}
+
+/** New devices **/
+.add-device{
+	margin: 27px 0px 27px 0px;
+}
+.add-device .glyphicon{
+	font-size: 2.5em;
+}
