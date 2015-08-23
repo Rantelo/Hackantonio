@@ -7,7 +7,7 @@ begin
 	processor = DeviceService::Processor.new handler
 	transport = Thrift::ServerSocket.new 9001
 	transport_factory = Thrift::BufferedTransportFactory.new
-	server = Thrift::SimpleServer.new processor, transport, transport_factory
+	server = Thrift::ThreadedServer.new processor, transport, transport_factory
 
 	puts 'Starting Server...'
 	server.serve

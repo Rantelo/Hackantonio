@@ -58,6 +58,7 @@ class DBHelper
 	def remove_device(id)
 		ans = Response::FAILURE
 		begin
+			@con = Mysql.new @host, @user, @password, @db
 			@con.query("DELETE FROM Action WHERE device_id=#{id}")
 			@con.query("DELETE FROM Device WHERE id=#{id}")
 			ans = Response::SUCCESS
@@ -72,6 +73,7 @@ class DBHelper
 	def get_device(id)
 		ans = Response::FAILURE
 		begin
+			@con = Mysql.new @host, @user, @password, @db
 			q = @con.query("SELECT * FROM Device WHERE id=#{id};")
 			if q.num_rows > 0
 				device_db = q.fetch_hash
@@ -90,6 +92,7 @@ class DBHelper
 	def get_all_devices()
 		ans = Response::FAILURE
 		begin
+			@con = Mysql.new @host, @user, @password, @db
 			q = @con.query("SELECT * FROM Device;")
 			
 			if q.num_rows > 0
@@ -113,6 +116,7 @@ class DBHelper
 		ans = Response::FAILURE
 		if device_exist? new_action.device_id
 			begin
+				@con = Mysql.new @host, @user, @password, @db
 				@con.query("INSERT INTO Action (device_id, date_time, command) VALUES( 
 																						  #{new_action.device_id}, 
 																						 '#{new_action.date_time}',
@@ -132,6 +136,7 @@ class DBHelper
 	def update_action(new_action)
 		ans = Response::FAILURE
 		begin
+			@con = Mysql.new @host, @user, @password, @db
 			q = @con.query("SELECT * FROM Action WHERE id='#{new_action.id};'")
 			if q.num_rows > 0
 				action_db = q.fetch_hash
@@ -154,6 +159,7 @@ class DBHelper
 	def remove_action(id)
 		ans = 2
 		begin
+			@con = Mysql.new @host, @user, @password, @db
 			@con.query("DELETE FROM Action WHERE id=#{id};")
 			ans = 1
 		rescue Mysql::Error => e
@@ -167,6 +173,7 @@ class DBHelper
 	def get_action(id)
 		ans = Response::FAILURE
 		begin
+			@con = Mysql.new @host, @user, @password, @db
 			q = @con.query("SELECT * FROM Action WHERE id=#{id};")
 			if q.num_rows > 0
 				action_db = q.fetch_hash
@@ -185,6 +192,7 @@ class DBHelper
 	def get_actions_for_device(device_id)
 		ans = Response::FAILURE
 		begin
+			@con = Mysql.new @host, @user, @password, @db
 			q = @con.query("SELECT * FROM Action WHERE device_id=#{device_id};")
 			
 			if q.num_rows > 0
@@ -206,6 +214,7 @@ class DBHelper
 	def get_all_actions()
 		ans = Response::FAILURE
 		begin
+			@con = Mysql.new @host, @user, @password, @db
 			q = @con.query("SELECT * FROM Action;")
 			
 			if q.num_rows > 0
